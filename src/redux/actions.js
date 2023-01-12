@@ -18,7 +18,8 @@ const videoAdded = () =>({
 
 export const loadVideos = () =>{
     return function(dispatch) {
-        axios.get(`http://localhost:5000/videos`).then((resp)=>{
+        console.log(process.env.ASSIGNMENT_API);
+        axios.get(`https://json-server-api-cz2f.onrender.com/videos`).then((resp)=>{
             console.log(resp.data);
             dispatch(getVideos(resp.data));
         }).catch(err => console.log(err));
@@ -27,7 +28,7 @@ export const loadVideos = () =>{
 
 export const deleteVideo = (id) =>{
     return function(dispatch) {
-        axios.delete(`http://localhost:5000/videos/${id}`).then((resp)=>{
+        axios.delete(`https://json-server-api-cz2f.onrender.com/videos/${id}`).then((resp)=>{
             console.log(resp.data);
             dispatch(videoDeleted());
             dispatch(loadVideos());
@@ -37,7 +38,7 @@ export const deleteVideo = (id) =>{
 
 export const addVideo = (video) =>{
     return function(dispatch) {
-        axios.post(`http://localhost:5000/videos/`, video).then((resp)=>{
+        axios.post(`https://json-server-api-cz2f.onrender.com/videos/`, video).then((resp)=>{
             console.log("resp", resp);
             dispatch(videoAdded());
             dispatch(loadVideos());
