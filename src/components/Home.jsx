@@ -64,7 +64,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(loadVideos());
-  }, []);
+  }, [dispatch]);
 
   const navigate = useNavigate();
   return (
@@ -74,7 +74,7 @@ const Home = () => {
         <Nav.Link href="/">Home</Nav.Link>
         <Nav.Link href="/buckets">Buckets</Nav.Link>
         <Nav.Link href="/addVideo">Upload</Nav.Link>
-        <Nav.Link href="/history">History</Nav.Link>
+        <Nav.Link href="/list-history">History</Nav.Link>
       </Nav>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
